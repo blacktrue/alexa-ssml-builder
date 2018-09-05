@@ -1,6 +1,6 @@
 {
   "name": "@blacktrue/alexa-ssml-builder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Library for make ssml language for amazon alexa",
   "main": "index.js",
   "scripts": {
