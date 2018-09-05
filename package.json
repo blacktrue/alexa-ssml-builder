@@ -1,5 +1,5 @@
 {
-  "name": "alexa-ssml-builder",
+  "name": "@blacktrue/alexa-ssml-builder",
   "version": "1.0.0",
   "description": "Library for make ssml language for amazon alexa",
   "main": "index.js",
