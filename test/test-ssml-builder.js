@@ -26,15 +26,15 @@ describe('SSMLBuilder', () => {
     const speak = ssml.text('hola')
     .getSpeak()
 
-    expect(speak).to.equal('<speak><p>hola</p></speak>')
+    expect(speak).to.equal('<speak><p> hola</p></speak>')
   })
 
   it('p', () => {
     const ssml = new SSMLBuilder()
-    const speak = ssml.text('hola')
+    const speak = ssml.p('hola')
     .getSpeak()
 
-    expect(speak).to.equal('<speak><p>hola</p></speak>')
+    expect(speak).to.equal('<speak><p> hola</p></speak>')
   })
 
   it('sayAs', () => {

@@ -51,7 +51,7 @@ class SSMLBuilder {
    * @returns {SSMLBuilder}
    */
   p (text) {
-    this.speak.ele('p', null, text)
+    this.speak.ele('p', null, ` ${text}`)
 
     return this
   }
