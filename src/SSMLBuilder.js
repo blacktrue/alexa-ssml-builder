@@ -86,6 +86,19 @@ class SSMLBuilder {
 
   /**
    *
+   * @param name
+   * @param attributes
+   * @param value
+   * @returns {SSMLBuilder}
+   */
+  add (name, attributes = {}, value = null) {
+    this.speak.ele(name, attributes, value)
+
+    return this
+  }
+
+  /**
+   *
    * @param pretty
    * @returns {*|void|number}
    */
