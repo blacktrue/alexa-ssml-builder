@@ -102,7 +102,7 @@ class SSMLBuilder {
    * @param value
    * @returns {string}
    */
-  raw (name, attributes = {}, value = null) {
+  static raw (name, attributes = {}, value = null) {
     const ele = builder.create('root', null, null, {headless: true})
     ele.ele(name, attributes, value)
     let elementString = ele.end()

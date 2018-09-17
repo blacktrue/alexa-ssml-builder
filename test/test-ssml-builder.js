@@ -54,8 +54,7 @@ describe('SSMLBuilder', () => {
   })
 
   it('raw', () => {
-    const ssml = new SSMLBuilder()
-    const speak = ssml.raw('break', {time: '0.5s'})
+    const speak = SSMLBuilder.raw('break', {time: '0.5s'})
 
     expect(speak).to.equal('<break time="0.5s"/>')
   })
