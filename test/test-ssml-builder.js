@@ -52,4 +52,11 @@ describe('SSMLBuilder', () => {
 
     expect(speak).to.equal('<speak><amazon:effect name="whispered">soy tu conciencia</amazon:effect></speak>')
   })
+
+  it('raw', () => {
+    const ssml = new SSMLBuilder()
+    const speak = ssml.raw('break', {time: '0.5s'})
+
+    expect(speak).to.equal('<break time="0.5s"/>')
+  })
 })

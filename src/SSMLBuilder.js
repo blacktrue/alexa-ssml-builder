@@ -97,6 +97,21 @@ class SSMLBuilder {
 
   /**
    *
+   * @param name
+   * @param attributes
+   * @param value
+   * @returns {string}
+   */
+  raw (name, attributes = {}, value = null) {
+    const ele = builder.create('root', null, null, {headless: true})
+    ele.ele(name, attributes, value)
+    let elementString = ele.end()
+    
+    return elementString.replace('<root>', '').replace('</root>', '')
+  }
+
+  /**
+   *
    * @returns {SSMLBuilder}
    */
   init () {
