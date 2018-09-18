@@ -58,4 +58,12 @@ describe('SSMLBuilder', () => {
 
     expect(speak).to.equal('<break time="0.5s"/>')
   })
+
+  it('add', () => {
+    const ssml = new SSMLBuilder()
+    const speak = ssml.add('prosody', {volume: 'x-loud'}, 'Louder volume for the second sentence')
+    .getSpeak()
+
+    expect(speak).to.equal('<speak><prosody volume="x-loud">Louder volume for the second sentence</prosody></speak>')
+  })
 })
