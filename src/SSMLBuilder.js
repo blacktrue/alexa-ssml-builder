@@ -9,12 +9,20 @@ class SSMLBuilder {
 
   /**
    *
+   * @return {SSMLBuilder}
+   */
+  static create () {
+    return new SSMLBuilder()
+  }
+
+  /**
+   *
    * @param time
    * @param unit
    * @returns {SSMLBuilder}
    */
   break (time = 0.5, unit = 's') {
-    this.speak.ele('break', {
+    this.add('break', {
       time: `${time}${unit}`
     })
 
@@ -26,12 +34,14 @@ class SSMLBuilder {
    * @param url
    * @returns {SSMLBuilder}
    */
-  audio (url = null) {
-    if (url) {
-      this.speak.ele('audio', {
-        src: url
-      })
+  audio (url) {
+    if (!url) {
+      throw new Error('The parameter url is invalid')
     }
+
+    this.add('audio', {
+      src: url
+    })
 
     return this
   }
@@ -51,7 +61,7 @@ class SSMLBuilder {
    * @returns {SSMLBuilder}
    */
   p (text) {
-    this.speak.ele('p', null, ` ${text}`)
+    this.add('p', null, ` ${text}`)
 
     return this
   }
@@ -63,7 +73,7 @@ class SSMLBuilder {
    * @returns {SSMLBuilder}
    */
   sayAs (interpretAs, value) {
-    this.speak.ele('say-as', {
+    this.add('say-as', {
       'interpret-as': interpretAs
     }, value)
 
@@ -77,7 +87,7 @@ class SSMLBuilder {
    * @returns {SSMLBuilder}
    */
   awsEffect (effect, value) {
-    this.speak.ele('amazon:effect', {
+    this.add('amazon:effect', {
       'name': effect
     }, value)
 
@@ -119,7 +129,7 @@ class SSMLBuilder {
     const ele = builder.create('root', null, null, {headless: true})
     ele.ele(name, attributes, value)
     let elementString = ele.end()
-    
+
     return elementString.replace('<root>', '').replace('</root>', '')
   }
 
